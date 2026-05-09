@@ -1,0 +1,47 @@
+<mvc:View
+    controllerName="basicuipractice.controller.basicUIpractice"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <content>
+            <Text
+                text="Welcome the world of SAP UI5"
+                textAlign="Center"
+                width="100%"
+                class="sapMH1FontSize"
+                id="text1"
+            />
+            <HBox
+                id="box1"
+                class="sapUiMediumMarginTop"
+            >
+                <Label
+                    id="_IDGenLabel"
+                    text="Enter your name"
+                    class="sapUiSmallMarginTopBottom sapUiSmallMarginBeginEnd"
+                />
+                <Input
+                    width="100%"
+                    id="input1"
+                />
+                <Button
+                    id="button1"
+                    text="Show"
+                    icon="sap-icon://show"
+                    activeIcon="sap-icon://detail-more"
+                    class="sapUiTinyMarginBegin"
+                    type="Success"
+                    press="onClick"
+                />
+                <Button
+                    text="Go to Simple Form"
+                    press="onClick_simpleform"
+                />
+            </HBox>
+        </content>
+    </Page>
+</mvc:View>

@@ -1,0 +1,125 @@
+{
+  "_version": "1.84.0",
+  "sap.app": {
+    "id": "curdoperation.tuhincurd",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.23.0",
+      "toolsId": "42ceeebf-d1cd-4023-97c6-9481ed4e7e18"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZTU01_EMP_PROJECT_NEW_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.147.2",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "curdoperation.tuhincurd.i18n.i18n"
+        }
+      },
+      "oModel": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "curdoperation.tuhincurd.view",
+        "async": true,
+        "viewPath": "curdoperation.tuhincurd.view"
+      },
+      "routes": [
+        {
+          "name": "RouteTuhin_curd",
+          "pattern": ":?query:",
+          "target": [
+            "TargetTuhin_curd"
+          ]
+        },
+         {
+          "name": "Formatter",
+          "pattern": "formatter",
+          "target": [
+            "TargetsFormatter"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetTuhin_curd": {
+          "id": "Tuhin_curd",
+          "name": "Tuhin_curd"
+        },
+        "TargetsFormatter": {
+          "id": "formatter",
+          "name": "Formatter"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "curdoperation.tuhincurd.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}

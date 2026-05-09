@@ -1,0 +1,109 @@
+{
+  "_version": "1.83.0",
+  "sap.app": {
+    "id": "basicuipractice",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.22.0",
+      "toolsId": "fc0c1003-ae15-4b1c-8686-fff30bbb63c9"
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.146.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "basicuipractice.i18n.i18n"
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "basicuipractice.view",
+        "async": true,
+        "viewPath": "basicuipractice.view"
+      },
+      "routes": [
+        {
+          "name": "RoutebasicUIpractice",
+          "pattern": "",
+          "target": [
+            "TargetbasicUIpractice"
+          ]
+        },
+        {
+          "name": "simpleform",
+          "pattern": "simpleform",
+          "target": [
+            "TargetsimpleForm"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetbasicUIpractice": {
+          "id": "basicUIpractice",
+          "name": "basicUIpractice"
+        },
+        "TargetsimpleForm": {
+          "id": "simpleform",
+          "name": "simpleForm"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "basicuipractice.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}

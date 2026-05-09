@@ -1,0 +1,164 @@
+<mvc:View
+    controllerName="basicuipractice.controller.simpleForm"
+        xmlns:mvc="sap.ui.core.mvc"
+            xmlns="sap.m"
+                xmlns:f="sap.ui.layout.form"
+                    xmlns:c="sap.ui.core"
+                    >
+                        <Page
+                                id="simpleform"
+                                        title="{i18n>title_simpleform}"
+                                            >>
+        <content >
+            <ObjectHeader id="_IDGenObjectHeader1"
+                icon="../images/profile_pic.png"
+                iconDensityAware="false"
+                iconAlt="Tuhin suvra Maji"
+                imageShape="Circle"
+                responsive="true"
+                title="Tuhin suvra Maji"
+                intro="SAP UI5 Developer"
+               
+               
+               
+            >
+                <ObjectAttribute id="_IDGenObjectAttribute"
+                    title="Email address"
+                    text="tumaji@deloitte.com"
+                    active="true"
+                />
+                <ObjectAttribute id="_IDGenObjectAttribute1"
+                    title="Office Phone"
+                    text="+91 8637035263"
+                />
+                <ObjectAttribute id="_IDGenObjectAttribute2"
+                    title="Functional Area"
+                    text="Development"
+                />
+            </ObjectHeader>
+        </content>
+        <f:SimpleForm
+            id="_IDGenSimpleForm"
+            title="Employee Information"
+            editable="true"
+            layout="ResponsiveGridLayout"
+            labelSpanS="2"
+            labelSpanM="3"
+            labelSpanL="3"
+            columnsM="3"
+            columnsL="3"
+        >
+            <f:content>
+                <c:Title
+                    id="_IDGenTitle1"
+                    text="Basic information"
+                />
+                <Label
+                    id="_IDGenLabel2"
+                    text="Your name"
+                />
+                <Input id="_IDGenInput" required="true"/>
+                <Label
+                    id="_IDGenLabel3"
+                    text="Your Gender"
+                />
+                <RadioButtonGroup
+                    id="_IDGenRadioButtonGroup"
+                    columns="2"
+                >
+                    <buttons>
+                        <RadioButton
+                            id="_IDGenRadioButton"
+                            text="Male"
+                        />
+                        <RadioButton
+                            id="_IDGenRadioButton1"
+                            text="Female"
+                        />
+                    </buttons>
+                </RadioButtonGroup>
+
+                <c:Title
+                    id="_IDGenTitle2"
+                    text="Contact details"
+                />
+                <Label
+                    id="_IDGenLabel4"
+                    text="Phone No"
+                />
+                <Input id="_IDGenInput2" required="true" />
+                <Label
+                    id="_IDGenLabel5"
+                    text="Email ID"
+                />
+                <Input id="_IDGenInput3" />
+
+                <c:Title
+                    id="_IDGenTitle3"
+                    text="Additional Information"
+                />
+                <Label
+                    id="_IDGenLabel6"
+                    text="EmpID"
+                />
+                <Input id="_IDGenInput4" required="true" />
+                <Label
+                    id="_IDGenLabel7"
+                    text="Emp Status"
+                />
+                <Select id="statusSelect">
+                    <items>
+                        <c:Item
+                            id="_IDGenItem"
+                            key="A"
+                            text="Active User"
+                        />
+                        <c:Item
+                            id="_IDGenItem1"
+                            key="I"
+                            text="Inactive User"
+                        />
+                    </items>
+                </Select>
+            </f:content>
+            <!-- <f:content>
+            
+            </f:content> -->
+        </f:SimpleForm>
+        <!-- 
+        Flexbox design explain:
+        justifyContent ,alignItems,fitContainer 
+          alignItems="Center"
+                fitContainer="true" 
+        -->
+        <content>
+            <FlexBox id="_IDGenFlexBox"
+                justifyContent="End"
+               
+            >
+                <Button
+                    id="_IDGenButton"
+                    text="Accept"
+                    type="Accept"
+                    class="sapUiTinyMarginEnd"
+                />
+                <Button
+                    id="_IDGenButton1"
+                    text="Reject"
+                    type="Reject"
+                    class="sapUiSmallMarginEnd"
+                />
+            </FlexBox>
+        </content>
+        <footer>
+        <Bar id="_IDGenBar" >
+        <!-- <contentLeft></contentLeft>
+        <contentMiddle></contentMiddle> -->
+        <contentRight>
+        <Button id="_IDGenButton2" text="Submit" type="Emphasized" press="onPress"></Button>
+        </contentRight>
+        </Bar>
+
+        </footer>
+    </Page>
+</mvc:View>

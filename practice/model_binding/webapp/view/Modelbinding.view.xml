@@ -1,0 +1,79 @@
+<mvc:View
+    controllerName="modelbinding.controller.Modelbinding"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <content>
+            <Table
+                id="_IDGenTable1"
+                items="{productJSONModel>/ProductCollection}"
+            >
+                <columns>
+
+                    <Column id="_IDGenColumn">
+                        <header>
+                            <Label
+                                id="_IDGenLabel"
+                                text="ProductId"
+                            />
+                        </header>
+                    </Column>
+
+                    <Column id="_IDGenColumn1">
+                        <header>
+                            <Label
+                                id="_IDGenLabel1"
+                                text="Name"
+                            />
+                        </header>
+                    </Column>
+
+                    <Column id="_IDGenColumn3">
+                        <header>
+                            <Label
+                                id="_IDGenLabel3"
+                                text="Category"
+                            />
+                        </header>
+                    </Column>
+
+                    <Column id="_IDGenColumn4">
+                        <header>
+                            <Label
+                                id="_IDGenLabel4"
+                                text="Price"
+                            />
+                        </header>
+                    </Column>
+
+                    <Column id="_IDGenColumn5">
+                        <header>
+                            <Label
+                                id="_IDGenLabel5"
+                                text="Quantity"
+                            />
+                        </header>
+                    </Column>
+
+                </columns>
+
+                <items>
+                    <ColumnListItem id="_IDGenColumnListItem1" vAlign="Inherit">
+                        <cells>
+                            <Text id="_IDGenText" text="{productJSONModel>ProductId}" />
+                            <Text id="_IDGenText1" text="{productJSONModel>Name}" />
+                            <Text id="_IDGenText2" text="{productJSONModel>Category}" />
+                            <Text id="_IDGenText3" text="{productJSONModel>Price}" />
+                            <Text id="_IDGenText4" text="{productJSONModel>Quantity}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+
+            </Table>
+        </content>
+    </Page>
+</mvc:View>

@@ -1,0 +1,242 @@
+<mvc:View xmlns:f2="sap.f"
+    controllerName="curdoperation.tuhincurd.controller.Formatter"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:c="sap.ui.core"
+>
+    <Page
+        id="formatter"
+        title="{i18n>title_formatter}"
+    >
+        <content>
+        <!-- <Table></Table> UI element -->
+            <Table
+                id="_IDGenTable1"
+                items="{/EmployeeSet}"
+                mode="SingleSelectLeft"
+               
+            >
+                <!-- <headertoolbar section/> -->
+                <headerToolbar>
+                    <Toolbar id="_IDGenToolbar2">
+                        <Title
+                            id="_IDGenTitle1"
+                            text="EMP Record"
+                        />
+                        <ToolbarSpacer id="_IDGenToolbarSpacer1" ></ToolbarSpacer>
+                        <Button id="_IDGenButton" text="Get the Selected EMP ID" type="Emphasized"  press="getEmpId"></Button>
+                    </Toolbar>
+                </headerToolbar>
+
+                <!-- <columns/> section -->
+                <columns>
+                    <Column id="_IDGenColumn8">
+                        <Text
+                            id="_IDGenText16"
+                            text="Empid"
+                        />
+                    </Column>
+                    <Column id="_IDGenColumn9">
+                        <Text
+                            id="_IDGenText17"
+                            text="Name"
+                        />
+                    </Column>
+                    <Column id="_IDGenColumn10">
+                        <Text
+                            id="_IDGenText18"
+                            text="Desig"
+                        />
+                    </Column>
+                    <Column id="_IDGenColumn11">
+                        <Text
+                            id="_IDGenText19"
+                            text="Skills"
+                        />
+                    </Column>
+                    <Column id="_IDGenColumn12">
+                        <Text
+                            id="_IDGenText20"
+                            text="Status"
+                        />
+                    </Column>
+                    <Column id="_IDGenColumn13">
+                        <Text
+                            id="_IDGenText21"
+                            text="Email"
+                        />
+                    </Column>
+                    <Column id="_IDGenColumn14">
+                        <Text
+                            id="_IDGenText22"
+                            text="Salary"
+                        />
+                    </Column>
+                    <Column id="_IDGenColumn15">
+                        <Text
+                            id="_IDGenText23"
+                            text="Rating"
+                        />
+                    </Column>
+                </columns>
+
+                <!-- <rows section/> -->
+                <items>
+                    <ColumnListItem id="_IDGenColumnListItem11" type="Navigation">
+                        <cells>
+                            <Text
+                                id="_IDGenText24"
+                                text="{Empid}"
+                            />
+                            <Text
+                                id="_IDGenText25"
+                                text="{Name}"
+                            />
+                            <Text
+                                id="_IDGenText26"
+                                text="{Desig}"
+                            />
+                            <Text
+                                id="_IDGenText27"
+                                text="{Skill}"
+                            />
+                            <!-- <Text id="_IDGenText28" text="{Status}"/> -->
+                            <ObjectStatus
+                                id="_IDGenObjectStatus1"
+                                text="{Status}"
+                                state="{path:'Status',formatter:'.f.formatStatus'}"
+                                inverted="true"
+                            />
+                            <Text
+                                id="_IDGenText29"
+                                text="{Email}"
+                            />
+                            <Text
+                                id="_IDGenText30"
+                                text="{Salary}"
+                            />
+                            <Text
+                                id="_IDGenText31"
+                                text="{path:'Rating',formatter:'.f.formatrating'}"
+                            />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+
+            <List
+                id="_IDGenList"
+                items="{/EmployeeSet}"
+            >
+                <headerToolbar>
+                    <Toolbar id="_IDGenToolbar2.0">
+                        <Title
+                            id="_IDGenTitle1.0"
+                            text="EMP Record"
+                        />
+                    </Toolbar>
+                </headerToolbar>
+                <items>
+                    <ObjectListItem
+                        id="_IDGenObjectListItem"
+                        title="{Name}"
+                        number="{Salary}"
+                        numberUnit="INR"
+                    >
+                        <attributes>
+                            <ObjectAttribute
+                                id="_IDGenObjectAttribute"
+                                title="Employee Id"
+                                text="{Empid}"
+                            />
+                            <ObjectAttribute
+                                id="_IDGenObjectAttribute1"
+                                title="Designation"
+                                text="{Desig}"
+                            />
+                        </attributes>
+                        <firstStatus>
+                            <!-- Expression binding -->
+                            <ObjectStatus
+                                id="_IDGenObjectStatus2"
+                                text="{Status}"
+                                state="{=${Status}==='ACTIVE'?'Success':'Error'}"
+                                inverted="true"
+                            />
+                            <!-- Formatter -->
+                            <!-- <ObjectStatus text="{Status}" state="{path:'Status',formatter:'.f.formatStatus'}"></ObjectStatus> -->
+                        </firstStatus>
+                    </ObjectListItem>
+                </items>
+            </List>
+        </content>
+        <f:SimpleForm id="_IDGenSimpleForm"
+            editable="true"
+            layout="ResponsiveGridLayout"
+            labelSpanL="2"
+            labelSpanM="2"
+            emptySpanL="6"
+            emptySpanM="6"
+        >
+            <f:content>
+                <!-- Multivalued UI Elements 
+            1.select  box, 2.combo box,3.multicombo box 4.Radio Button group, 5.Value help dialog -->
+
+                <Label id="_IDGenLabel" text="Please select from the selectBox" />
+                <Select items="{/EmployeeSet}" id="oSEName">
+                    <items>
+                        <c:Item id="_IDGenItem"
+                            text="{Name}"
+                            key="{Name}"
+                        />
+                    </items>
+                </Select>
+
+                <Label id="_IDGenLabel1" text="Please select from the comboBox" />
+                <ComboBox items="{/EmployeeSet}" id="oCBName">
+                    <items>
+                        <c:Item id="_IDGenItem1"
+                            text="{Name}"
+                            key="{Name}"
+                        />
+                    </items>
+                </ComboBox>
+
+                <Label id="_IDGenLabel2" text="Please select from the MulticomboBox" />
+                <MultiComboBox
+                    items="{/EmployeeSet}"
+                    showSelectAll="true"
+                    id="oMCBName"
+                >
+                    <items>
+                        <c:Item id="_IDGenItem2"
+                            text="{Name}"
+                            key="{Name}"
+                        />
+                    </items>
+                </MultiComboBox>
+
+                <Label id="_IDGenLabel3" text="Please select from the RadioButtonGroup" />
+                <RadioButtonGroup
+                    buttons="{/EmployeeSet}"
+                    columns="3"
+                    selectedIndex="-1"
+                    id="oRBGName"
+                >
+                    <buttons>
+                        <RadioButton id="_IDGenRadioButton" text="{Name}" />
+                    </buttons>
+                </RadioButtonGroup>
+            </f:content>
+        </f:SimpleForm>
+        <footer>
+        <Bar id="_IDGenBar" >
+        <contentRight >
+        <Button id="_IDGenButton1" text="SUBMIT" type="Emphasized" press="onSubmit"></Button>
+        </contentRight>
+        </Bar>
+       
+        </footer>
+    </Page>
+</mvc:View>

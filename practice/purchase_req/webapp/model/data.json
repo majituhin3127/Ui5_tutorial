@@ -1,0 +1,58 @@
+{
+  "header": {
+    "prType": "NB",
+    "companyCode": "1000",
+    "purchOrg": "P100",
+    "purchGroup": "001",
+    "plant": "1000",
+    "storageLoc": "0001",
+    "sourceDet": true,
+    "note": "Office materials procurement"
+  },
+
+  "items": {
+    "results": [
+      {
+        "itemNo": "10",
+        "material": "MAT1001",
+        "description": "Laptop",
+        "quantity": 2,
+        "price": 55000,
+        "plant": "1000",
+        "deliveryDate": "2026-05-10"
+      },
+      {
+        "itemNo": "20",
+        "material": "MAT1002",
+        "description": "Mouse",
+        "quantity": 10,
+        "price": 500,
+        "plant": "1000",
+        "deliveryDate": "2026-05-12"
+      }
+    ]
+  },
+
+  "approval": {
+    "status": "Pending",
+    "history": [
+      {
+        "approver": "Manager",
+        "comment": "Waiting for approval",
+        "date": "05-05-2026"
+      }
+    ]
+  },
+
+  "valueHelp": {
+    "prTypes": [
+      { "key": "NB", "text": "Standard PR" },
+      { "key": "ZNB", "text": "Custom PR" },
+      { "key": "FO", "text": "Framework Order" }
+    ],
+    "plants": [
+      { "key": "1000", "text": "Plant 1000" },
+      { "key": "2000", "text": "Plant 2000" }
+    ]
+  }
+}

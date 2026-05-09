@@ -1,0 +1,108 @@
+{
+  "_version": "1.83.0",
+  "sap.app": {
+    "id": "modelbinding",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.22.0",
+      "toolsId": "67f45a27-d629-4d80-b21e-a43cffa94c1d"
+    },
+    "dataSources": {
+      "ProductJSONData": {
+        "uri": "model/Product.json",
+        "type": "JSON"
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.146.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "modelbinding.i18n.i18n"
+        }
+      },
+      "productJSONModel":{
+        "type": "sap.ui.model.json.JSONModel",
+        "dataSource": "ProductJSONData"
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "modelbinding.view",
+        "async": true
+        
+      },
+      "routes": [
+        {
+          "name": "RouteModelbinding",
+          "pattern": ":?query:",
+          "target": [
+            "TargetModelbinding"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetModelbinding": {
+          "id": "Modelbinding",
+          "name": "Modelbinding"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "modelbinding.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}

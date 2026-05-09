@@ -1,0 +1,111 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Dialog title="Sample Fragment">
+
+        <Table
+            items="{oModel>/EmployeeSet}"
+           >
+
+            <!-- Header Toolbar -->
+            <!-- <headerToolbar>
+                <Toolbar>
+
+                    <Title text="EMP Record" />
+
+                    <ToolbarSpacer />
+
+                    <Button
+                        text="Get the Selected EMP ID"
+                        type="Emphasized"
+                        press="getEmpId" />
+
+                </Toolbar>
+            </headerToolbar> -->
+
+            <!-- Columns -->
+            <columns>
+
+                <Column>
+                    <Text text="Empid" />
+                </Column>
+
+                <Column>
+                    <Text text="Name" />
+                </Column>
+
+                <Column>
+                    <Text text="Desig" />
+                </Column>
+
+                <Column>
+                    <Text text="Skills" />
+                </Column>
+
+                <Column>
+                    <Text text="Status" />
+                </Column>
+
+                <Column>
+                    <Text text="Email" />
+                </Column>
+
+                <!-- <Column>
+                    <Text text="Salary" />
+                </Column> -->
+
+                <Column>
+                    <Text text="Rating" />
+                </Column>
+
+            </columns>
+
+            <!-- Items -->
+            <items>
+
+                <ColumnListItem
+                    
+                    type="Active"
+                    press="onPressRowFromF4Help">
+                  
+                    <cells>
+
+                        <Text text="{oModel>Empid}" />
+
+                        <Text text="{oModel>Name}" />
+
+                        <Text text="{oModel>Desig}" />
+
+                        <Text text="{oModel>Skill}" />
+
+                        <!-- <ObjectStatus
+                            text="{oModel>Status}"
+                            state="{path:'oModel>Status',formatter:'.f.formatStatus'}"
+                            inverted="true" /> -->
+
+                        <Text text="{oModel>Email}" />
+
+                        <Text text="{oModel>Salary}" />
+
+                        <Text
+                            text="{path:'oModel>Rating',formatter:'.f.formatrating'}" />
+
+                    </cells>
+
+                </ColumnListItem>
+
+            </items>
+            
+
+        </Table>
+        <endButton>
+         <Button
+                text="Close"
+                press="onCloseDialog"
+                type="Negative" />
+        </endButton>
+
+    </Dialog>
+
+</core:FragmentDefinition>
