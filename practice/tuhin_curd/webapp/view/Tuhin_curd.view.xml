@@ -2,89 +2,225 @@
     controllerName="curdoperation.tuhincurd.controller.Tuhin_curd"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
-    xmlns:f="sap.ui.layout.form">
-
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+>
     <Page
         id="page"
-        title="{i18n>title}">
-
+        title="{i18n>title}"
+    >
         <content>
+            <Panel
+                headerText="Filter/Sort Employees"
+                expandable="true"
+                expanded="true"
+                class="sapUiSmallMarginBeginEnd"
+                width="auto"
+            >
+                <f:SimpleForm
+                    id="_IDGenSimpleForm2"
+                    editable="true"
+                    layout="ResponsiveGridLayout"
+                    labelSpanL="2"
+                    labelSpanM="2"
+                    emptySpanL="6"
+                    emptySpanM="6"
+                >
+                    <f:content>
+                        <core:Title text="Filters" />
+                        <Label
+                            id="_IDGenLabel4"
+                            text="Select the emp ID"
+                        />
 
-            <f:SimpleForm id="_IDGenSimpleForm2"
-                editable="true"
-                layout="ResponsiveGridLayout"
-                labelSpanL="2"
-                labelSpanM="2"
-                emptySpanL="6"
-                emptySpanM="6">
+                        <Input
+                            id="oIpEmpId"
+                            showValueHelp="true"
+                            valueHelpRequest="onHelpF4"
+                        />
+                        <Label text="Name" />
+                        <Input id="oIpName" />
+                        <core:Title text="Sort" />
+                        <Label text="Sort field" />
+                        <ComboBox id="oCBSortField">
+                            <items>
+                                <core:Item
+                                    text="Employee Id"
+                                    key="Empid"
+                                />
+                                <core:Item
+                                    text="Name"
+                                    key="Name"
+                                />
+                            </items>
+                        </ComboBox>
+                        <Label text="Sort Order" />
+                        <RadioButtonGroup
+                            id="oRBGSortOrder"
+                            selectedIndex="-1"
+                            columns="2"
+                        >
+                            <buttons>
+                                <RadioButton text="Ascending" />
+                                <RadioButton text="Descending" />
+                            </buttons>
+                        </RadioButtonGroup>
 
-                <f:content>
-
-                    <Label id="_IDGenLabel4" text="Select the emp ID" />
-
-                    <Input
-                        id="oIpEmpId"
-                        showValueHelp="true"
-                        valueHelpRequest="onHelpF4" />
-
-                </f:content>
-
-            </f:SimpleForm>
-
+                        <core:Title text="Grouping" />
+                        <Label text="Group field" />
+                        <ComboBox id="oCBGroupField">
+                            <items>
+                                <core:Item
+                                    text="Skill"
+                                    key="Skill"
+                                />
+                                <core:Item
+                                    text="Designation"
+                                    key="Desig"
+                                />
+                            </items>
+                        </ComboBox>
+                        <Label text="Group Order" />
+                        <RadioButtonGroup
+                            id="oRBGGroupOrder"
+                            selectedIndex="-1"
+                            columns="2"
+                        >
+                            <buttons>
+                                <RadioButton text="Ascending" />
+                                <RadioButton text="Descending" />
+                            </buttons>
+                        </RadioButtonGroup>
+                    </f:content>
+                </f:SimpleForm>
+                <FlexBox justifyContent="End">
+                    <Button
+                        text="Go"
+                        icon="sap-icon://accept"
+                        type="Emphasized"
+                        class="sapUiTinyMarginEnd"
+                        press="onPressGo"
+                    />
+                    <Button
+                        text="Reset"
+                        icon="sap-icon://reset"
+                        type="Reject"
+                        press="onPressReset"
+                    />
+                </FlexBox>
+            </Panel>
         </content>
-   <!-- <content>
-   <Table id="_IDGenTable" items="{oModel>/EmployeeSet}"  >
-   <headerToolbar>
-    <Toolbar id="_IDGenToolbar1" >
-    <Title id="_IDGenTitle" text="EMP Record"/>
-    </Toolbar>
-   </headerToolbar>
-   <columns>
-   <Column id="_IDGenColumn" >
-   <Text id="_IDGenText" text="Empid"></Text>
-   </Column>
-    <Column id="_IDGenColumn1" >
-   <Text id="_IDGenText1" text="Name"></Text>
-   </Column>
-    <Column id="_IDGenColumn2" >
-   <Text id="_IDGenText2" text="Desig"></Text>
-   </Column>
-    <Column id="_IDGenColumn3" >
-   <Text id="_IDGenText3" text="Skills"></Text>
-   </Column>
-    <Column id="_IDGenColumn4" >
-   <Text id="_IDGenText4" text="Status"></Text>
-   </Column>
-    <Column id="_IDGenColumn5" >
-   <Text id="_IDGenText5" text="Email"></Text>
-   </Column>
-    <Column id="_IDGenColumn6" >
-   <Text id="_IDGenText6" text="Salary"></Text>
-   </Column>
-    <Column id="_IDGenColumn7" >
-   <Text id="_IDGenText7" text="Rating"></Text>
-   </Column>
-   </columns>
-   <items>
-   <ColumnListItem id="_IDGenColumnListItem1" >
-   <Text id="_IDGenText8" text="{oModel>Empid}"></Text>
-   <Text id="_IDGenText9" text="{oModel>Name}"></Text>
-   <Text id="_IDGenText10" text="{oModel>Desig}"></Text>
-   <Text id="_IDGenText11" text="{oModel>Skill}"></Text>
-   <Text id="_IDGenText12" text="{oModel>Status}"></Text>
-   <Text id="_IDGenText13" text="{oModel>Email}"></Text>
-   <Text id="_IDGenText14" text="{oModel>Salary}"></Text>
-   <Text id="_IDGenText15" text="{oModel>Rating}"></Text>
-   </ColumnListItem>
-   </items>
-   </Table>
-   </content> -->
-   <!-- <footer>
-   <Bar id="_IDGenBar1" >
-   <contentRight>
-   <Button id="_IDGenButton" type="Emphasized" text="Go_TO_Formatter" press="onPress"></Button>
-   </contentRight>
-   </Bar>
-   </footer> -->
+        <content>
+            <Table
+                id="oTabEmp"
+                items="{oModel>/EmployeeSet}"
+            >
+                <headerToolbar>
+                    <Toolbar id="_IDGenToolbar1">
+                        <Title
+                            id="_IDGenTitle"
+                            text="EMP Record"
+                        />
+                    </Toolbar>
+                </headerToolbar>
+                <columns>
+                    <Column id="_IDGenColumn">
+                        <Text
+                            id="_IDGenText"
+                            text="Empid"
+                        />
+                    </Column>
+                    <Column id="_IDGenColumn1">
+                        <Text
+                            id="_IDGenText1"
+                            text="Name"
+                        />
+                    </Column>
+                    <Column id="_IDGenColumn2">
+                        <Text
+                            id="_IDGenText2"
+                            text="Desig"
+                        />
+                    </Column>
+                    <Column id="_IDGenColumn3">
+                        <Text
+                            id="_IDGenText3"
+                            text="Skills"
+                        />
+                    </Column>
+                    <Column id="_IDGenColumn4">
+                        <Text
+                            id="_IDGenText4"
+                            text="Status"
+                        />
+                    </Column>
+                    <Column id="_IDGenColumn5">
+                        <Text
+                            id="_IDGenText5"
+                            text="Email"
+                        />
+                    </Column>
+                    <Column id="_IDGenColumn6">
+                        <Text
+                            id="_IDGenText6"
+                            text="Salary"
+                        />
+                    </Column>
+                    <Column id="_IDGenColumn7">
+                        <Text
+                            id="_IDGenText7"
+                            text="Rating"
+                        />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem id="_IDGenColumnListItem1">
+                        <Text
+                            id="_IDGenText8"
+                            text="{oModel>Empid}"
+                        />
+                        <Text
+                            id="_IDGenText9"
+                            text="{oModel>Name}"
+                        />
+                        <Text
+                            id="_IDGenText10"
+                            text="{oModel>Desig}"
+                        />
+                        <Text
+                            id="_IDGenText11"
+                            text="{oModel>Skill}"
+                        />
+                        <Text
+                            id="_IDGenText12"
+                            text="{oModel>Status}"
+                        />
+                        <Text
+                            id="_IDGenText13"
+                            text="{oModel>Email}"
+                        />
+                        <Text
+                            id="_IDGenText14"
+                            text="{oModel>Salary}"
+                        />
+                        <Text
+                            id="_IDGenText15"
+                            text="{oModel>Rating}"
+                        />
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+        <footer>
+            <Bar id="_IDGenBar1">
+                <contentRight>
+                    <Button
+                        type="Emphasized"
+                        text="Go_TO_Formatter"
+                        press="onPress"
+                    />
+                </contentRight>
+            </Bar>
+        </footer>
     </Page>
 </mvc:View>

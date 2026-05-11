@@ -1,0 +1,11 @@
+<mvc:View
+    controllerName="curdoperation.tuhincurd.controller.Sorter_Formatter"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+>
+    <Page
+        id="sorter"
+        title="{i18n>title}"
+    />
+</mvc:View>
