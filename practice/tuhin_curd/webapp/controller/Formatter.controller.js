@@ -7,6 +7,12 @@ sap.ui.define([
     return Controller.extend("curdoperation.tuhincurd.controller.Formatter", {
         f: formatter,
         onInit() {
+            this.getOwnerComponent().getRouter().getRoute("Formatter").attachPatternMatched(this.onPatternMatched, this);
+        },
+        onPatternMatched: function (oEvent) {
+            var empId = oEvent.getParameter("arguments").key;
+            this.empId =empId;
+            this.getView().bindElement("oModel>/EmployeeSet('" + empId + "')");
         },
 
         // onSubmit: function () {

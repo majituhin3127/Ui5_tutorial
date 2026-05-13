@@ -174,7 +174,7 @@
                     </Column>
                 </columns>
                 <items>
-                    <ColumnListItem id="_IDGenColumnListItem1">
+                    <ColumnListItem id="_IDGenColumnListItem1" press="onPressRow" type="Navigation">
                         <Text
                             id="_IDGenText8"
                             text="{oModel>Empid}"

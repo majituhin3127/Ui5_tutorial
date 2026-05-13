@@ -44,6 +44,13 @@ sap.ui.define([
 
             this.dialog.close();
         },
+        onPressRow:function(oEvent){
+            var empId = oEvent.getSource().getBindingContext("oModel").getObject().Empid;
+            this.getOwnerComponent().getRouter().navTo("Formatter", {
+                key: empId
+            });
+
+        },
 
         // GO Button
         onPressGo: function () {

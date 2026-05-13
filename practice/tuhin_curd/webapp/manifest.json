@@ -98,7 +98,7 @@
         },
          {
           "name": "Formatter",
-          "pattern": "formatter",
+          "pattern": "formatter/{key}",
           "target": [
             "TargetsFormatter"
           ]
