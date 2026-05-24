@@ -1,0 +1,66 @@
+<mvc:View
+    controllerName="curdoperation.tuhincurd.controller.Create_Emp"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:up="sap.m.upload"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:u="sap.ui.unified"
+>
+    <Page
+        title="I am View3"
+        showNavButton="true"
+        navButtonPress="onNavBack"
+    >
+        <content>
+            <f:SimpleForm
+                title="Employee Details"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                labelSpanL="2"
+                labelSpanM="2"
+                emptySpanL="6"
+                emptySpanM="6"
+            >
+                <f:content>
+                    <Label text="Employee Id" />
+                    <Input id="oIpEmpId" />
+                    <Label text="Name" />
+                    <Input id="oIpName" />
+                    <Label text="Deisgnation" />
+                    <Input id="oIpDesig" />
+                    <Label text="Email" />
+                    <Input id="oIpEmail" />
+                    <Label text="Status" />
+                    <Input id="oIpStatus" />
+                    <Label text="Salary" />
+                    <Input id="oIpSalary" />
+                    <Label text="Rating" />
+                    <Input id="oIpRating" />
+                     <Label text="Skill" />
+                    <Input id="oIpSkill" />
+                    <!-- <Label text="Upload your photo" />
+                    <u:FileUploader
+                        id="oFileUploaderPhoto"
+                        uploadUrl="/sap/opu/odata/sap/ZB78_EMP_SRV/PhotoSet"
+                        sendXHR="true"
+                        useMultipart="false"
+                        change="onSelFile"
+                        uploadComplete="onUploadComplete"
+                    /> -->
+                </f:content>
+            </f:SimpleForm>
+        </content>
+        <footer>
+            <Bar>
+                <contentRight>
+                    <Button
+                        text="Save"
+                        icon="sap-icon://save"
+                        press="onPresSave"
+                        type="Emphasized"
+                    />
+                </contentRight>
+            </Bar>
+        </footer>
+    </Page>
+</mvc:View>

@@ -44,6 +44,9 @@ sap.ui.define([
 
             this.dialog.close();
         },
+         onCreateEmp: function () {
+            this.getOwnerComponent().getRouter().navTo("create_page");
+        },
         onPressRow:function(oEvent){
             var empId = oEvent.getSource().getBindingContext("oModel").getObject().Empid;
             this.getOwnerComponent().getRouter().navTo("Formatter", {

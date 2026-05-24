@@ -1,7 +1,7 @@
 {
   "_version": "1.84.0",
   "sap.app": {
-    "id": "curdoperation.tuhincurd",
+    "id": "employeemanagement",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -12,12 +12,12 @@
     "resources": "resources.json",
     "sourceTemplate": {
       "id": "@sap/generator-fiori:basic",
-      "version": "1.23.0",
-      "toolsId": "42ceeebf-d1cd-4023-97c6-9481ed4e7e18"
+      "version": "1.24.0",
+      "toolsId": "662229c4-89b0-4bd6-8776-b96555764279"
     },
     "dataSources": {
       "mainService": {
-        "uri": "/sap/opu/odata/sap/ZTU01_EMP_PROJECT_NEW_SRV/",
+        "uri": "/sap/opu/odata/sap/ZB78_EMP_SRV/",
         "type": "OData",
         "settings": {
           "annotations": [],
@@ -46,7 +46,7 @@
   "sap.ui5": {
     "flexEnabled": true,
     "dependencies": {
-      "minUI5Version": "1.147.2",
+      "minUI5Version": "1.148.0",
       "libs": {
         "sap.m": {},
         "sap.ui.core": {}
@@ -60,10 +60,10 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "curdoperation.tuhincurd.i18n.i18n"
+          "bundleName": "employeemanagement.i18n.i18n"
         }
       },
-      "oModel": {
+      "": {
         "dataSource": "mainService",
         "preload": true,
         "settings": {}
@@ -84,50 +84,28 @@
         "transition": "slide",
         "type": "View",
         "viewType": "XML",
-        "path": "curdoperation.tuhincurd.view",
+        "path": "employeemanagement.view",
         "async": true,
-        "viewPath": "curdoperation.tuhincurd.view"
+        "viewPath": "employeemanagement.view"
       },
       "routes": [
         {
-          "name": "RouteTuhin_curd",
+          "name": "RouteView1",
           "pattern": ":?query:",
           "target": [
-            "TargetTuhin_curd"
-          ]
-        },
-         {
-          "name": "Formatter",
-          "pattern": "formatter/{key}",
-          "target": [
-            "TargetsFormatter"
-          ]
-        },
-        {
-          "name": "create_page",
-          "pattern": "create",
-          "target": [
-            "TargetCreateEmp"
+            "TargetView1"
           ]
         }
       ],
       "targets": {
-        "TargetTuhin_curd": {
-          "id": "Tuhin_curd",
-          "name": "Tuhin_curd"
-        },
-        "TargetCreateEmp": {
-          "id": "create_Emp",
-          "name": "Create_Emp"
-        },
-        "TargetsFormatter": {
-          "id": "formatter",
-          "name": "Formatter"
+        "TargetView1": {
+          "id": "View1",
+          "name": "View1"
         }
       }
     },
     "rootView": {
-      "viewName": "curdoperation.tuhincurd.view.App",
+      "viewName": "employeemanagement.view.App",
       "type": "XML",
       "id": "App",
       "async": true

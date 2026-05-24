@@ -21,10 +21,9 @@
                     id="_IDGenSimpleForm2"
                     editable="true"
                     layout="ResponsiveGridLayout"
-                    labelSpanL="2"
-                    labelSpanM="2"
-                    emptySpanL="6"
-                    emptySpanM="6"
+                    labelSpanL="3"
+                    labelSpanM="3"
+                   
                 >
                     <f:content>
                         <core:Title text="Filters" />
@@ -40,6 +39,7 @@
                         />
                         <Label text="Name" />
                         <Input id="oIpName" />
+
                         <core:Title text="Sort" />
                         <Label text="Sort field" />
                         <ComboBox id="oCBSortField">
@@ -114,12 +114,44 @@
             <Table
                 id="oTabEmp"
                 items="{oModel>/EmployeeSet}"
+                mode="SingleSelectLeft"
+                class="sapUiSmallMarginBeginEnd"
             >
                 <headerToolbar>
                     <Toolbar id="_IDGenToolbar1">
                         <Title
                             id="_IDGenTitle"
                             text="EMP Record"
+                        />
+                        <ToolbarSpacer />
+                        <Button
+                            text="Create Bulk Employee"
+                            icon="sap-icon://group"
+                            type="Emphasized"
+                            press="onCreateBulkEmp"
+                        />
+                        <Button
+                            text="Create Employee"
+                            icon="sap-icon://add"
+                            type="Emphasized"
+                            press="onCreateEmp"
+                        />
+                        <Button
+                            text="Edit Employee"
+                            icon="sap-icon://edit"
+                            type="Emphasized"
+                            press="onEditEmp"
+                        />
+                        <Button
+                            text="Delete Employee"
+                            icon="sap-icon://delete"
+                            type="Emphasized"
+                            press="onDeleteEmp"
+                        />
+                        <Button
+                            icon="sap-icon://excel-attachment"
+                            type="Reject"
+                            press="onExportToExcel"
                         />
                     </Toolbar>
                 </headerToolbar>
@@ -174,7 +206,11 @@
                     </Column>
                 </columns>
                 <items>
-                    <ColumnListItem id="_IDGenColumnListItem1" press="onPressRow" type="Navigation">
+                    <ColumnListItem
+                        id="_IDGenColumnListItem1"
+                        press="onPressRow"
+                        type="Navigation"
+                    >
                         <Text
                             id="_IDGenText8"
                             text="{oModel>Empid}"

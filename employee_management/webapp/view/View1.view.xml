@@ -1,0 +1,58 @@
+<mvc:View
+    xmlns:form="sap.ui.layout.form"
+    controllerName="employeemanagement.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <content>
+            <f:SimpleForm
+                layout="ResponsiveGridLayout"
+                labelSpanL="2"
+                labelSpanM="2"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanL="2"
+                emptySpanM="2"
+                emptySpanS="0"
+                class="sapUiContentPadding"
+            >
+                <f:content>
+                    <core:Title text="Employee BasicDetails" />
+                    <Label text="Name" />
+                    <Input />
+                    <Label
+                        text="Email"
+                        required="true"
+                       
+                    />
+                    <Input  id="oEmailInput"/>
+                    <Label text="Contact Number" />
+                    <Input />
+                    <core:Title text="Professional Info" />
+                    <Label
+                        text="ID"
+                        required="true"
+                    />
+                    <Input id="oIDInput"/>
+                    <Label text="Department" />
+                    <Input />
+                    <Label text="Designation" />
+                    <Input />
+                </f:content>
+            </f:SimpleForm>
+        </content>
+        <footer>
+        <Bar >
+        <contentRight>
+        <Button text="save" icon="sap-icon://save" type= "Emphasized" press="onSavePress" ></Button>
+        </contentRight>
+        </Bar>
+        </footer>
+    </Page>
+</mvc:View>

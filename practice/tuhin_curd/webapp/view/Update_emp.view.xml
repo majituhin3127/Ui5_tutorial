@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.ui.layout.form" xmlns="sap.m" controllerName="tuhin_curd.webapp.controller.Update_emp" displayBlock="true">
+    <Page id="page" title="Update Employee" >
+       <content>
+      <f:SimpleForm title="Employee Details" editable="true" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2" emptySpanL="6" emptySpanM="6">
+        <f:content>
+          <Label text="Employee Id"></Label>
+          <Input id="oIpEmpId" value="{oModel>Empid}" enabled="false"></Input>
+          <Label text="Name"></Label>
+          <Input id="oIpName" value="{oModel>Name}"></Input>
+          <Label text="Deisgnation"></Label>
+          <Input id="oIpDesig" value="{oModel>Desig}"></Input>
+          <Label text="Email"></Label>
+          <Input id="oIpEmail" value="{oModel>Email}"></Input>
+          <Label text="Status"></Label>
+          <Input id="oIpStatus" value="{oModel>Status}"></Input>
+          <Label text="Skill"></Label>
+            <Input id="oIpSkill" value="{oModel>Skill}"></Input>
+          <Label text="Salary"></Label>
+          <Input id="oIpSalary" value="{oModel>Salary}"></Input>
+          <Label text="Rating"></Label>
+          <Input id="oIpRating" value="{oModel>Rating}"></Input>
+          <!-- <Label text="Upload your new photo"></Label>
+           <u:FileUploader id="oFileUploaderPhoto" uploadUrl="/sap/opu/odata/sap/ZB78_EMP_SRV/PhotoSet" sendXHR="true" useMultipart="false"
+             change="onSelFile" uploadComplete="onUploadComplete"></u:FileUploader> -->
+        </f:content>
+
+      </f:SimpleForm>
+      </content>
+          
+    </Page>
+</mvc:View>
