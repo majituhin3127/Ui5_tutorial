@@ -1,0 +1,12 @@
+<mvc:View xmlns:viz="sap.viz.ui5.controls" controllerName="charts.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+    <content>
+        <viz:VizFrame id="oVizFrame" vizType="column" height="400px" width="100%">
+
+        </viz:VizFrame>
+
+    </content>
+    </Page>
+</mvc:View>
