@@ -19,19 +19,19 @@ sap.ui.define([
 
                 title: {
                     visible: true,
-                    text: "Employee Vs Salary"
+                    text: "Products vs Price and Stock"
                 },
 
                 valueAxis: {
                     title: {
                         visible: true,
-                        text: "Employee Salary"
+                        text: "Product Price"
                     }
                 },
                 categoryAxis: {
                     title: {
                         visible: true,
-                        text: "Employee Name and ID"
+                        text: "Product Name and ID"
                     }
                 }
 
@@ -39,23 +39,23 @@ sap.ui.define([
              var dataSet = new FlattenedDataset({
 
                 data: {
-                    path: "/EmployeeSet"
+                    path: "/Products"
                 },
 
                 dimensions: [{
-                    name: "Name",
-                    value: "{Name}"
+                    name: "ProductName",
+                    value: "{ProductName}"
                 }, {
-                    name: "Empid",
-                    value: "{Empid}"
+                    name: "ProductID",
+                    value: "{ProductID}"
                 }],
 
                 measures: [{
-                    name: "Salary",
-                    value: "{Salary}"
+                    name: "UnitPrice",
+                    value: "{UnitPrice}"
                 }, {
-                    name: "Fixedsalary",
-                    value: "{Fixedsalary}"
+                    name: "UnitsInStock",
+                    value: "{UnitsInStock}"
                 }]
 
             });
@@ -67,13 +67,13 @@ sap.ui.define([
             this.oVizFrame.addFeed(new FeedItem({
                 uid: "categoryAxis",
                 type: "Dimension",
-                values: ["Name", "Empid"]
+                values: ["ProductName", "ProductID"]
             }));
 
             this.oVizFrame.addFeed(new FeedItem({
                 uid: "valueAxis",
                 type: "Measure",
-                values: ["Salary", "Fixedsalary"]
+                values: ["UnitPrice", "UnitsInStock"]
             }));
         }
     });

@@ -16,12 +16,12 @@
       "toolsId": "cdfdfaf8-e91c-41f4-be5d-a5465bb70688"
     },
     "dataSources": {
-      "mainService": {
-        "uri": "/sap/opu/odata/sap/ZB78_EMP_SRV/",
+      "Northwind.svc": {
+        "uri": "/Northwind/Northwind.svc/",
         "type": "OData",
         "settings": {
           "annotations": [],
-          "localUri": "localService/mainService/metadata.xml",
+          "localUri": "localService/Northwind.svc/metadata.xml",
           "odataVersion": "2.0"
         }
       }
@@ -63,8 +63,8 @@
           "bundleName": "charts.i18n.i18n"
         }
       },
-      "": {
-        "dataSource": "mainService",
+      "Northwind.svc": {
+        "dataSource": "Northwind.svc",
         "preload": true,
         "settings": {}
       }

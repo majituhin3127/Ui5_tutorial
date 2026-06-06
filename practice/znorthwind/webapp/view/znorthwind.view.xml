@@ -1,5 +1,6 @@
 <mvc:View
     controllerName="znorthwind.controller.znorthwind"
+    xmlns:viz="sap.viz.ui5.controls"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
 >
@@ -7,21 +8,10 @@
         id="page"
         title="{i18n>title}"
     >
-        <List
-            backgroundDesign="Transparent"
-            headerText="{i18n>categoriesTitle}"
-            items="{/Categories}"
-            growing="true"
-            growingThreshold="2"
-        >
-            <items>
-                <StandardListItem
-                    title="{CategoryName}"
-                    description="{Description}"
-                    type="Navigation"
-                    press="onClick"
-                />
-            </items>
-        </List>
+        <content>
+         <viz:VizFrame id="oVizFrame" vizType="column" height="400px" width="100%">
+
+        </viz:VizFrame>
+        </content>
     </Page>
 </mvc:View>

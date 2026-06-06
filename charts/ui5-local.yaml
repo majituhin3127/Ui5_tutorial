@@ -28,18 +28,21 @@ server:
     - name: fiori-tools-proxy
       afterMiddleware: compression
       configuration:
-        ignoreCertErrors: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
+        ignoreCertErrors: false
         backend:
           - path: /sap
             url: http://49.206.197.10:8034
             destination: TuhinPersonal
+          - path: /Northwind/Northwind.svc/
+            url: https://services.odata.org/
+            destination: NorthWind
     - name: sap-fe-mockserver
       beforeMiddleware: csp
       configuration:
         mountPath: /
         services:
-          - urlPath: /sap/opu/odata/sap/ZB78_EMP_SRV
-            metadataPath: ./webapp/localService/mainService/metadata.xml
-            mockdataPath: ./webapp/localService/mainService/data
+          - urlPath: /Northwind/Northwind.svc
+            metadataPath: ./webapp/localService/Northwind.svc/metadata.xml
+            mockdataPath: ./webapp/localService/Northwind.svc/data
             generateMockData: true
         annotations: []

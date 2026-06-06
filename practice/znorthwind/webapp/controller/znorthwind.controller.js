@@ -1,32 +1,81 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
-], (Controller) => {
+    "sap/ui/core/mvc/Controller",
+     "sap/viz/ui5/data/FlattenedDataset",
+    "sap/viz/ui5/controls/common/feeds/FeedItem"
+], (Controller, FlattenedDataset, FeedItem) => {
     "use strict";
 
     return Controller.extend("znorthwind.controller.znorthwind", {
         onInit() {
-        },
-        onClick:function(oEvent){
-            var source = oEvent.getSource();
-            var path = source.getBindingContext().getPath();
-            var oModel= source.getModel();
-            var oCategoryId = oModel.getProperty(path).CategoryID;
-            this.getOwnerComponent().getRouter().navTo("Products",
-                {CategoryId:oCategoryId}
-            );
+             this.oVizFrame = this.byId("oVizFrame");
+             this.oVizFrame.setVizProperties({
 
+                plotArea: {
+                    dataLabel: {
+                        visible: true,
+                        type: "value"
+                    }
+                },
 
+                title: {
+                    visible: true,
+                    text: "Products vs Price and Stock"
+                },
+
+                valueAxis: {
+                    title: {
+                        visible: true,
+                        text: "Product Price"
+                    }
+                },
+                categoryAxis: {
+                    title: {
+                        visible: true,
+                        text: "Product Name and ID"
+                    }
+                }
+
+            });
+             var dataSet = new FlattenedDataset({
+
+                data: {
+                    path: "/Products"
+                },
+
+                dimensions: [{
+                    name: "ProductName",
+                    value: "{ProductName}"
+                }, {
+                    name: "ProductID",
+                    value: "{ProductID}"
+                }],
+
+                measures: [{
+                    name: "UnitPrice",
+                    value: "{UnitPrice}"
+                }, {
+                    name: "UnitsInStock",
+                    value: "{UnitsInStock}"
+                }]
+
+            });
+             this.oVizFrame.destroyDataset();
+
+            this.oVizFrame.setDataset(dataSet);
+             // add the feeds here
+
+            this.oVizFrame.addFeed(new FeedItem({
+                uid: "categoryAxis",
+                type: "Dimension",
+                values: ["ProductName", "ProductID"]
+            }));
+
+            this.oVizFrame.addFeed(new FeedItem({
+                uid: "valueAxis",
+                type: "Measure",
+                values: ["UnitPrice", "UnitsInStock"]
+            }));
         }
-        // onClick: function (oEvent) {
-        //     debugger
-        //     var oItem = oEvent.getSource();
-        //     var oContext = oItem.getBindingContext();
-
-        //     // var oCategoryId = oContext.getProperty("CategoryID"); // correct name
-
-        //     // this.getOwnerComponent().getRouter().navTo("Products", {
-        //     //     CategoryId: oCategoryId
-        //     // });
-        // }
+       
     });
 });
